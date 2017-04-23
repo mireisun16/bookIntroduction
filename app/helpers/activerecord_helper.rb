@@ -1,0 +1,2 @@
+module ActiverecordHelper
+end

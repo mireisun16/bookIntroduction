@@ -1,0 +1,34 @@
+<h1><%= @pageTitle%></h1>
+<p><%= @pageIntro1 %></p>
+<p><%= @pageIntro2 %></p><br>
+
+<%= link_to "本の紹介一覧をみる",root_path %><br>
+<%= link_to "本の紹介を作成する","/new" %><br><br>
+
+
+	タイトル：<%= @bk_intro.title %><br>
+	価格：<%= @bk_intro.price %><br>
+	説明：<%= @bk_intro.setsumei %><br>
+	評価：⭐️<%= @bk_intro.hyouka %><br>
+
+<%= link_to "内容を編集する",edit_path %><br>
+<%= link_to "内容を削除する",destroy_path ,method:'delete' %><br>
+
+
+
+<%#= @comment.nickname %><br>
+<%#= @comment.comment %><br>
+
+<% @bk_intro.comments.each do |comment| %>
+	nickname：<%= comment.nickname %><br>
+	comment：<%= comment.comment %><br>
+<% end %>
+
+<%= form_tag comment_path do %>
+<%= hidden_field_tag :bk_intro_id,@bk_intro.id %><br>
+<%= text_field_tag :nickname %><br>
+<%= text_field_tag :comment %><br>
+<%= submit_tag 'コメントを追加する' %>
+<% end %>
+
+

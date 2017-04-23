@@ -1,0 +1,12 @@
+<h1><%= @pageTitle%></h1>
+<p><%= @pageIntro1 %></p><br>
+
+<%= link_to "本の紹介を作成する","/new" %><br><br>
+
+<% @bk_intros.each do |bk_intro| %>
+
+	タイトル：<%= link_to bk_intro.title,detail_path(bk_intro.id) %><br>
+	価格：<%= bk_intro.price %>¥<br>
+	説明：<%= bk_intro.setsumei %><br>
+	評価：⭐️<%= bk_intro.hyouka %><br><br>
+<% end %>

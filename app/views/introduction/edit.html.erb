@@ -1,0 +1,10 @@
+<h1><%= @pageTitle%></h1>
+<p><%= @pageIntro1 %></p><br>
+
+<%= form_tag update_path,method:'patch' do %>
+	タイトル：<%= text_field_tag :title,@bk_intro.title %><br>
+	価格：<%= text_field_tag :price,@bk_intro.price %><br>
+	説明：<%= text_area_tag :setsumei,@bk_intro.setsumei %><br>
+	評価：<%= text_field_tag :hyouka,@bk_intro.hyouka %><br>
+	<%= submit_tag '編集を保存する' %>
+<% end %>
